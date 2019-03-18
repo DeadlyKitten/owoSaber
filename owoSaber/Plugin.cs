@@ -10,7 +10,7 @@ namespace owoSaber
     public class Plugin : IPlugin
     {
         public string Name => "owoSaber";
-        public string Version => "0.1.0";
+        public string Version => "0.2.0";
 
         public void OnApplicationStart()
         {
