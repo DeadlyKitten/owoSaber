@@ -2,6 +2,7 @@
 using System.Reflection;
 using IllusionPlugin;
 using Harmony;
+using owoSaber.Misc;
 using Logger = owoSaber.Misc.Logger;
 
 namespace owoSaber
@@ -29,6 +30,10 @@ namespace owoSaber
 
                 Console.WriteLine(e);
             }
+
+            string title = WindowTitle.Get();
+            string replaced = Replacement.ReplaceText(title);
+            WindowTitle.Set(replaced);
         }
 
         public void OnApplicationQuit() { }
