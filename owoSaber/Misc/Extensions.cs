@@ -27,7 +27,7 @@ namespace owoSaber.Misc
                 };
 
                 string text = input;
-                string face = faces[new System.Random().Next(0, faces.Length)];
+                string face = faces[new Random().Next(0, faces.Length)];
 
                 text = Regex.Replace(text, @"[rl]", "w");
                 text = Regex.Replace(text, @"[RL]", "W");
