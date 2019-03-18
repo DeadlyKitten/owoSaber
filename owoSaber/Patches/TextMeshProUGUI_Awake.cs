@@ -11,7 +11,7 @@ namespace owoSaber.Patches
     {
         public static void Postfix(TextMeshProUGUI __instance)
         {
-            __instance.text = __instance.text.SafeOWO();
+            __instance.text = Replacement.ReplaceText(__instance.text);
         }
     }
 }

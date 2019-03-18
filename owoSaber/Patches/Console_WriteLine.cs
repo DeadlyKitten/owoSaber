@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Harmony;
-using owoSaber.Misc;
 
 namespace owoSaber.Patches
 {
@@ -12,7 +11,7 @@ namespace owoSaber.Patches
     {
         public static bool Prefix(ref string value)
         {
-            value = value.OwO();
+            value = Replacement.ReplaceText(value);
             return true;
         }
     }
@@ -24,7 +23,7 @@ namespace owoSaber.Patches
     {
         public static bool Prefix(ref object arg0)
         {
-            arg0 = arg0.ToString().OwO();
+            arg0 = Replacement.ReplaceText(arg0.ToString());
             return true;
         }
     }
@@ -36,8 +35,8 @@ namespace owoSaber.Patches
     {
         public static bool Prefix(ref object arg0, ref object arg1)
         {
-            arg0 = arg0.ToString().OwO();
-            arg1 = arg1.ToString().OwO();
+            arg0 = Replacement.ReplaceText(arg0.ToString());
+            arg1 = Replacement.ReplaceText(arg1.ToString());
 
             return true;
         }
@@ -51,7 +50,7 @@ namespace owoSaber.Patches
         public static bool Prefix(ref object[] arg)
         {
             arg = arg
-                .Select(x => x.ToString().OwO())
+                .Select(x => Replacement.ReplaceText(x.ToString()))
                 .ToArray();
 
             return true;

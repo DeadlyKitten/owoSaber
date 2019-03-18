@@ -11,7 +11,7 @@ namespace owoSaber.Patches
     {
         private static bool Prefix(ref string value)
         {
-            value = value.SafeOWO();
+            value = Replacement.ReplaceText(value);
             return true;
         }
     }
