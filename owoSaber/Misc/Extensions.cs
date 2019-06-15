@@ -40,7 +40,7 @@ namespace owoSaber.Misc
             }
             catch
             {
-                Logger.Debug($"Failed to OwO translate string: '{input}'");
+                Logger.Log($"Failed to OwO translate string: '{input}'");
                 return input;
             }
         }
@@ -100,7 +100,7 @@ namespace owoSaber.Misc
             }
             catch
             {
-                Logger.Debug($"Failed to safe OwO translate string: '{input}'");
+                Logger.Log($"Failed to safe OwO translate string: '{input}'");
                 return input;
             }
         }

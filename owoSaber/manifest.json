@@ -1,0 +1,13 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/nike4613/ModSaber-MetadataFileSchema/master/Schema.json",
+  "author": "lolPants",
+  "description": "uwu",
+  "gameVersion": "1.1.0",
+  "id": "owosaber",
+  "name": "owosaber",
+  "version": "0.2.1",
+  "features": [],
+  "dependsOn": {
+    "CustomUI": "^1.5.10"
+  }
+}

@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Reflection;
-using IllusionPlugin;
+using IPA;
 using Harmony;
 using owoSaber.Misc;
 using Logger = owoSaber.Misc.Logger;
+using UnityEngine.SceneManagement;
 
 namespace owoSaber
 {
-    public class Plugin : IPlugin
+    public class Plugin : IBeatSaberPlugin
     {
         public string Name => "owoSaber";
         public string Version => "0.2.0";
+
+        public void Init(IPA.Logging.Logger logger)
+        {
+            Logger.logger = logger;
+        }
 
         public void OnApplicationStart()
         {
@@ -19,14 +25,14 @@ namespace owoSaber
                 HarmonyInstance harmony = HarmonyInstance.Create("com.jackbaron.beatsaber.owoSaber");
                 harmony.PatchAll(Assembly.GetExecutingAssembly());
 
-                Logger.Debug("Patched successfully!");
+                Logger.Log("Patched successfully!");
             }
             catch (Exception e)
             {
                 Logger.Log(
                     "This plugin requires Harmony. Make sure you installed the plugin " +
-                    "properly, as the Harmony DLL should have been installed with it."
-                );
+                    "properly, as the Harmony DLL should have been installed with it.",
+                    Logger.LogLevel.Warning);
 
                 Console.WriteLine(e);
             }
@@ -45,5 +51,11 @@ namespace owoSaber
         public void OnUpdate() { }
 
         public void OnFixedUpdate() { }
+
+        public void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode) { }
+
+        public void OnSceneUnloaded(Scene scene) { }
+
+        public void OnActiveSceneChanged(Scene prevScene, Scene nextScene) { }
     }
 }
